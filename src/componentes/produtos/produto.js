@@ -2,7 +2,8 @@ import './produto.css'
 
 export default function Produto(props){
     return (
-       <div class={props.categoria}>
+       <div className="produtos">
+           <div class={props.categoria}>
            <div class="cont">
                 <div class="card">
                     <div class="imgBox">
@@ -27,5 +28,6 @@ export default function Produto(props){
                 </div>
             </div>
        </div> 
+       </div>
     )
 }

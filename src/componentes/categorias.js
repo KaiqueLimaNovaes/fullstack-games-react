@@ -1,31 +1,20 @@
-import { ListGroup } from "react-bootstrap";
-import "./categorias.css";
+function exibirCategoria(categoria){
+  let elementos = document.getElementsByClassName('produtos');
 
-export const ListaCategorias = ({ setFilter }) => {
-  const categoriasData = [
-    { label: "Todos", slug: null },
-    { label: "Consoles", slug: "consoles" },
-    { label: "Jogos", slug: "jogos" },
-    { label: "Microondas", slug: "microondas" },
-    { label: "Lava Louças", slug: "lavaLoucas" },
-    { label: "Lavadora de Roupas", slug: "lavadoraDeRoupas" },
-  ];
+  for (var i = 0; i < elementos.length; i++){
 
-  return (
-    <div className="categorias">
-      <h3>Categorias</h3>
+      if (categoria == elementos[i].id){
+          elementos[i].style = "display:inline-block";
+      }else{
+          elementos[i].style = "display:none";
+      }
+  }
+}
 
-      <ListGroup variant="flush">
-        {categoriasData.map((cat, key) => (
-          <ListGroup.Item
-            className="itemCategoria"
-            key={key}
-            onClick={() => setFilter(cat.slug)}
-          >
-            {cat.label}
-          </ListGroup.Item>
-        ))}
-      </ListGroup>
-    </div>
-  );
-};
+let exibirTodos = () => {
+  let elementos = document.getElementsByClassName('produtos');
+
+  for (var i = 0; i < elementos.length; i++){
+      elementos[i].style = "display:inline-block";
+  }
+}
