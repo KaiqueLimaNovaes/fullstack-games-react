@@ -6,7 +6,7 @@ function Pedidos(){
     
         let formData = new FormData(event.target);
     
-        const url = "http://192.168.0.39/fullstackgames/fullstack-games-back/pedidos-guarda.php";
+        const url = "http://192.168.100.135/fullstackgames/fullstack-games-back/pedidos-guarda.php";
     
         fetch(url, {
           method: "POST",
