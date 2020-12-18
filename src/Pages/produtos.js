@@ -9,7 +9,7 @@ function Produtos(){
     useEffect(() => {
         async function fetchData() {
             //const resposta = await fetch("http://localhost/fullstack_games_react/fullstack-games-back/produtos-lista.php")
-            const resposta = await fetch("http://fullstackgames.sytes.net/fullstackgames/fullstack-games-back/produtos-lista.php")
+            const resposta = await fetch("http://192.168.0.41/fullstackgames/fullstack-games-back/produtos-lista.php")
             const dados = await resposta.json()
             setProdutos(dados);
         }
