@@ -1,4 +1,5 @@
 import  {useState, useEffect} from 'react';
+import axios from "axios";
 
 import Produto from '../componentes/produtos/produto.js';
 import './produtos.css';
@@ -7,13 +8,9 @@ function Produtos(){
     const [produtos, setProdutos] = useState([]);
 
     useEffect(() => {
-        async function fetchData() {
-            //const resposta = await fetch("http://localhost/fullstack_games_react/fullstack-games-back/produtos-lista.php")
-            const resposta = await fetch("http://192.168.100.135/fullstackgames/fullstack-games-back/produtos-lista.php")
-            const dados = await resposta.json()
-            setProdutos(dados);
-        }
-        fetchData();
+        axios.get("http://localhost:3005/produto").then((response) => {
+        setProdutos(response.data.produtos);
+        });
     }, []);
 
     return (
@@ -34,7 +31,7 @@ function Produtos(){
             </div>
             <div class="container-fluid">
                 <div class="row justify-content-around">
-                    {produtos && produtos.map(item => <Produto key={item.id} imagem={item.imagem} nome={item.descricao} preco={item.preco} precoP={item.preco_venda} categoria={item.categoria} />)}
+                    {produtos && produtos.map((item) => (<Produto key={item.id} imagem={item.imagem} nome={item.descricao} preco={item.preco} precoP={item.preco_venda} categoria={item.categoria} />))}
                 </div>
             </div>
         </div>
