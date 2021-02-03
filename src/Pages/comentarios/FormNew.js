@@ -3,6 +3,8 @@ import { Container } from "react-bootstrap";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
+import './FormNew.css';
+
 export const FormNew = ({ history }) => {
     const { register, handleSubmit } = useForm();
   
@@ -19,22 +21,45 @@ export const FormNew = ({ history }) => {
     };
   
     return (
-      <Container>
-        <close onClick={() => {
-          history.push("/comentarios");
-        }}>
-          X
-        </close>
+      <Container id="corpo">
+
+        <header id="gameboyHeader"></header>
+
+        <span id="wordGeneral">Deixe um comentário</span>
   
-        <title>Criar Categoria</title>
-  
-        <form onSubmit={handleSubmit(handleOnSubmit)}>
-          <label>Nome:</label>
-          <input type="text" name="nome" ref={register} />
-          <label>Comentário:</label>
-          <input type="text" name="comentario" ref={register} />
-          <button>Enviar</button>
-        </form>
+        <section id="screen">
+          <span></span>
+          <div id="glass">
+            <form id="formComentario" onSubmit={handleSubmit(handleOnSubmit)}>
+              <label id="wordScreen">Nome:</label>
+              <input id="inputScreen" type="text" name="nome" ref={register} />
+              <label id="wordScreen">Comentário:</label>
+              <input id="inputScreenC" type="text" name="comentario" ref={register} />
+            </form>
+          </div>
+        </section>
+        <p id="wordName">Full stack games</p>
+        <table id="tabela">
+            <tr>
+                <td>
+                    <div id="directions">
+                        <button id="bLeft"></button>
+                        <button id="bTop"></button>
+                        <button id="bRigth"></button>
+                        <button id="bBottom"></button>
+                    </div>
+                </td>
+                <td>
+                    <input id="buttonL" type="submit" form="formComentario" />
+                    <br /><br />
+                    <button id="buttonS" onClick={() => {history.push("/comentarios");}}>Sair</button>
+                </td>
+            </tr>
+        </table>
+        <div>
+          <button id="start"></button>
+          <button id="select"></button>
+        </div>
       </Container>
     );
   };

@@ -20,7 +20,7 @@ function Comentarios({ history }){
         <header>
           <h2>Comentários</h2>
   
-          <button onClick={() => {history.push(`/comentarios/new`);}}>Novo</button>
+          <button onClick={() => {history.push(`/comentarios/new`);}}>Escrever um comentário</button>
         </header>
   
         <Switch>
