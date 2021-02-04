@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Switch, Route } from "react-router-dom";
 
 import Lista from "./lista.js";
+import './comentarios.css';
 
 function Comentarios({ history }){
     const [comentarios, setComentarios] = useState([]);
@@ -18,9 +19,10 @@ function Comentarios({ history }){
     return (
         <Container>
         <header>
-          <h2>Comentários</h2>
-  
-          <button onClick={() => {history.push(`/comentarios/new`);}}>Escrever um comentário</button>
+          <Row id="rowHeader">
+            <h2>Comentários</h2>
+            <button id="btnC" onClick={() => {history.push(`/comentarios/new`);}}>Escrever um comentário</button>
+          </Row>
         </header>
   
         <Switch>

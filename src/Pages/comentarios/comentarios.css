@@ -1,0 +1,13 @@
+#rowHeader{
+    justify-content:space-between;
+    margin-bottom: 20px;
+}
+
+#btnC{
+    width: 180px;
+    height: 40px;
+    background-color: #24C0EB;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+}
