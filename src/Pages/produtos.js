@@ -1,8 +1,11 @@
 import  {useState, useEffect} from 'react';
 import axios from "axios";
+import {lazy, Suspense} from 'react';
 
-import Produto from '../componentes/produtos/produto.js';
+//import Produto from '../componentes/produtos/produto.js';
 import './produtos.css';
+
+const Produto = lazy(() => import('../componentes/produtos/produto.js'));
 
 function Produtos(){
     const [produtos, setProdutos] = useState([]);
@@ -31,7 +34,11 @@ function Produtos(){
             </div>
             <div class="container-fluid">
                 <div class="row justify-content-around">
-                    {produtos && produtos.map((item) => (<Produto key={item.id} imagem={item.imagem} nome={item.descricao} preco={item.preco} precoP={item.preco_venda} categoria={item.categoria} />))}
+                    {produtos && produtos.map((item) => (
+                        <Suspense fallback={<div>Carregando ...</div>}>
+                            <Produto key={item.id} imagem={item.imagem} nome={item.descricao} preco={item.preco} precoP={item.preco_venda} categoria={item.categoria} />
+                        </Suspense>
+                        ))}
                 </div>
             </div>
         </div>

@@ -1,11 +1,14 @@
 import './App.css';
 
 import Menu from './/componentes/menu.js';
-import Footer from './componentes/footer.js';
+//import Footer from './componentes/footer.js';
 import Rotas from './rotas.js'
 
 import {BrowserRouter} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
+import {lazy, Suspense} from 'react';
+
+const Footer = lazy(() => import('./componentes/footer.js'));
 
 function App() {
   return ( 
@@ -19,7 +22,9 @@ function App() {
           <Rotas />
         </Container>
       </main>
-      <Footer />
+      <Suspense fallback={<p>Carregando ...</p>}>
+        <Footer />
+      </Suspense>
     </div>
   </BrowserRouter>
   );
