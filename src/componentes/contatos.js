@@ -19,10 +19,11 @@ function Contatos(){
     const [contatos, setContatos] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3210/contatos").then((response) => {
-        setContatos(response.data.contatos);
-        console.log(setContatos)
-        });
+        axios.get("http://localhost:3210/contatos").then(function(response){
+            //console.log(response.data)
+            setContatos(response.data);
+            //console.log(setContatos)
+        })
     }, []);
 
     return (
